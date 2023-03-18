@@ -1,13 +1,8 @@
 import './bootstrap';
-import express, { Express, Request, Response } from 'express';
+import Express from '@/externals/express';
 
-const app: Express = express();
-const port = process.env.SERVER_PORT;
+const port = process.env.SERVER_PORT || 3000;
 
-app.get('/', (req: Request, res: Response) => {
-  res.send('Hello, this is Express + TypeScript');
-});
-
-app.listen(port, () => {
-  console.log(`[Server]: I am running at https://localhost:${port}`);
+Express.listen(port, () => {
+  console.log(`Server listening at port: ${port}`);
 });
