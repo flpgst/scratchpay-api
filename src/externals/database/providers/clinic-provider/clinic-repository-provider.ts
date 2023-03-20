@@ -1,11 +1,12 @@
-import { ClinicRepository } from '@/types/repositories/Clinic';
 import { Clinic } from '@/types/entities';
+import { ClinicProvider } from '@/types/providers/Clinic';
+import { ClinicRepository } from '@/types/repositories/Clinic';
 import Filters from '@/types/filters';
 
 export default class ClinicRepositoryProvider implements ClinicRepository {
   constructor(
-    private dentalClinicProvider: ClinicRepository,
-    private vetClinicProvider: ClinicRepository
+    private dentalClinicProvider: ClinicProvider,
+    private vetClinicProvider: ClinicProvider
   ) {}
 
   async list(filters: Filters): Promise<Clinic[]> {

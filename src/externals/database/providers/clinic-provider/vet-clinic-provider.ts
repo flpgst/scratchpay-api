@@ -1,9 +1,8 @@
-import { ClinicRepository } from '@/types/repositories/Clinic';
-import { VET_CLINICS } from '@/externals/providers/scratchpay';
 import { Clinic } from '@/types/entities';
 import { HttpClient } from '@/app/ports/http-client';
 import filterByQuery from '../searchEngine';
 import Filters from '@/types/filters';
+import { ClinicProvider } from '@/types/providers/Clinic';
 
 interface Opening {
   from: string;
@@ -16,11 +15,11 @@ interface VetClinic {
   opening: Opening;
 }
 
-export default class VetClinicProvider implements ClinicRepository {
-  constructor(private httpClient: HttpClient) {}
+export default class VetClinicProvider implements ClinicProvider {
+  constructor(private httpClient: HttpClient, private url: string) {}
 
   async list(filters: Filters): Promise<Clinic[]> {
-    const vetClinics: VetClinic[] = await this.httpClient.get(VET_CLINICS);
+    const vetClinics: VetClinic[] = await this.httpClient.get(this.url);
 
     const clinics: Clinic[] = vetClinics.map((vetClinic) => ({
       name: vetClinic.clinicName,
