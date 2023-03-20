@@ -1,3 +1,3 @@
-import ListClinic from './list';
+import ListClinic from './list-clinic';
 
 export default ListClinic;

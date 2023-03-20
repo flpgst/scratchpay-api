@@ -1,4 +1,3 @@
-import DentalClinic from './DentalClinic';
-import VetClinic from './VetClinic';
+import { Clinic, Availability } from './Clinic';
 
-export type Clinic = DentalClinic | VetClinic;
+export { Clinic, Availability };
