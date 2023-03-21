@@ -12,8 +12,7 @@
     "strictPropertyInitialization": false,
     "paths": {
       "@/*": ["./src/*"]
-    },
-    "experimentalDecorators": true
+    }
   },
   "ts-node": {
     "require": ["tsconfig-paths/register"]
