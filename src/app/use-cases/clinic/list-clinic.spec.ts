@@ -1,9 +1,10 @@
 import DentalClinicProvider from '@/externals/database/providers/clinic-provider/dental-clinic-provider';
 import ClinicRepositoryProvider from '@/externals/database/providers/clinic-provider/clinic-repository-provider';
 import VetClinicProvider from '@/externals/database/providers/clinic-provider/vet-clinic-provider';
-import InMemoryHttpClient, { mockedClinics } from '@/externals/http-client/in-memory-http-client';
+import InMemoryHttpClient from '@/externals/http-client/in-memory-http-client';
 import ListClinic from './list-clinic';
 import Filters from '@/types/filters';
+import { mockedClinics } from '@/externals/database/mocks/clinics.mock';
 
 const httpClient = new InMemoryHttpClient();
 const dentalClinicProvider = new DentalClinicProvider(httpClient, 'DENTAL_CLINICS');

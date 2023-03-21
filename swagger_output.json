@@ -1,0 +1,100 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Scratchpay API",
+    "description": "Software Engineer Challenge."
+  },
+  "host": "localhost:3000",
+  "basePath": "/api/",
+  "tags": [
+    {
+      "name": "Clinic",
+      "description": "Clinics API"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/clinics": {
+      "get": {
+        "tags": [
+          "Clinic"
+        ],
+        "description": "Endpoint to get clinics.",
+        "parameters": [
+          {
+            "name": "name",
+            "description": "Filter clinics by name.",
+            "schema": {
+              "type": "string",
+              "example": "Good Health"
+            },
+            "in": "query"
+          },
+          {
+            "name": "state",
+            "description": "Filter clinics by state.",
+            "schema": {
+              "type": "string",
+              "example": "Alaska"
+            },
+            "in": "query"
+          },
+          {
+            "name": "time",
+            "description": "Filter clinics available at time.",
+            "schema": {
+              "type": "string",
+              "example": "10:30"
+            },
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Clinic"
+            },
+            "description": "Clinics found."
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Clinic": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "Good Health Home"
+        },
+        "stateName": {
+          "type": "string",
+          "example": "Alaska"
+        },
+        "availability": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "type": "string",
+              "example": "09:00"
+            },
+            "to": {
+              "type": "string",
+              "example": "20:00"
+            }
+          }
+        }
+      }
+    }
+  }
+}
