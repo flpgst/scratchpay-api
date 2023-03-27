@@ -83,3 +83,17 @@ The integration tests are located in:
 ```
 - src/__tests__
 ```
+
+### Accessing the API
+
+Do a `GET` request to `localhost:3000/api/clinics`
+It is possible to use the following query params to filter data:
+
+- `name` : The fullname or partial name of a clinic;
+- `state` : The name or acronym of a state;
+- `time` : The hour in the format `hh:mm`.
+
+### OpenAPI Doc
+
+Access `localhost:3000/doc`
+It is possible to perform requests inside the OpenAPI interface.
