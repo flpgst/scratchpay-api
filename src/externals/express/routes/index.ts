@@ -1,11 +1,11 @@
-import { Express, Router } from 'express';
-import { OK } from 'http-status';
 import { json, urlencoded } from 'body-parser';
 import cors from 'cors';
+import { Express, Router } from 'express';
 import helmet from 'helmet';
-import routes from './routes';
+import { OK } from 'http-status';
+import { routes as clinicRoutes } from './clinics';
 
-const createRouter = (app: Express) => {
+export const createRouter = (app: Express) => {
   const router = Router();
 
   app.use(json());
@@ -13,13 +13,11 @@ const createRouter = (app: Express) => {
   app.use(cors());
   app.use(helmet());
 
-  router.use('/ping', (_req, res) => {
+  router.use('/ping', (req, res) => {
     return res.status(OK).send('pong');
   });
 
-  router.use('/api', [routes]);
+  router.use('/api', [clinicRoutes]);
 
   return router;
 };
-
-export default createRouter;
