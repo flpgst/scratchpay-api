@@ -12,9 +12,6 @@ const doc = {
   },
   host: `localhost:${port}`,
   basePath: '/api/',
-  schemes: ['http'],
-  consumes: ['application/json'],
-  produces: ['application/json'],
   tags: [
     {
       name: 'Clinic',

@@ -1,8 +1,8 @@
 import './bootstrap';
-import Express from '@/externals/express';
+import { app } from './externals/express/app';
 
 const port = process.env.SERVER_PORT || 3000;
 
-Express.listen(port, () => {
-  console.log(`Server listening at port: ${port}`);
+app.listen(port, () => {
+  console.log(`🚀 Server listening at port: ${port}`);
 });
